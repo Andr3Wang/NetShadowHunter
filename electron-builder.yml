@@ -1,0 +1,53 @@
+appId: app.netshadow.hunter
+productName: 网影猎手
+copyright: Copyright © 2026 NetShadow Hunter contributors
+directories:
+  buildResources: build
+files:
+  - '!**/.vscode/*'
+  - '!src/*'
+  - '!tests/*'
+  - '!electron.vite.config.{js,ts,mjs,cjs}'
+  - '!{.eslintcache,eslint.config.mjs,.prettierignore,.prettierrc.yaml,dev-app-update.yml,CHANGELOG.md,README.md}'
+  - '!{.env,.env.*,.npmrc,pnpm-lock.yaml}'
+  - '!{tsconfig.json,tsconfig.node.json,tsconfig.web.json}'
+extraResources:
+  - from: resources/home.html
+    to: home.html
+  - from: resources/bin
+    to: bin
+    filter:
+      - '**/*'
+asarUnpack:
+  - resources/**
+win:
+  executableName: netshadow-hunter
+  target:
+    - dir
+nsis:
+  artifactName: netshadow-hunter-${version}-setup.${ext}
+  shortcutName: 网影猎手
+  uninstallDisplayName: 网影猎手
+  createDesktopShortcut: always
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  perMachine: false
+mac:
+  entitlementsInherit: build/entitlements.mac.plist
+  extendInfo:
+    - NSDocumentsFolderUsageDescription: 网影猎手需要访问你选择的下载目录。
+    - NSDownloadsFolderUsageDescription: 网影猎手把视频和音频保存到你选择的目录。
+  notarize: false
+dmg:
+  artifactName: netshadow-hunter-${version}.${ext}
+linux:
+  target:
+    - AppImage
+    - deb
+  maintainer: NetShadow Hunter contributors
+  category: AudioVideo
+  synopsis: 浏览、挑选、用 yt-dlp 下载
+appImage:
+  artifactName: netshadow-hunter-${version}.${ext}
+npmRebuild: false
+

@@ -1,0 +1,47 @@
+{
+  "name": "netshadow-hunter",
+  "version": "0.1.0",
+  "description": "网影猎手 NetShadow Hunter — 浏览、挑选、用 yt-dlp 下载的开源桌面客户端",
+  "main": "./out/main/index.js",
+  "author": "NetShadow Hunter contributors",
+  "license": "MIT",
+  "scripts": {
+    "format": "prettier --write .",
+    "lint": "eslint --cache .",
+    "typecheck:node": "tsc --noEmit -p tsconfig.node.json --composite false",
+    "typecheck:web": "vue-tsc --noEmit -p tsconfig.web.json --composite false",
+    "typecheck": "npm run typecheck:node && npm run typecheck:web",
+    "test": "tsx --test tests/**/*.test.ts",
+    "start": "electron-vite preview",
+    "dev": "electron-vite dev",
+    "build": "npm run typecheck && electron-vite build",
+    "package": "npm run build && electron-builder --win",
+    "package:win": "npm run build && electron-builder --win",
+    "package:dir": "npm run build && electron-builder --dir",
+    "postinstall": "electron-builder install-app-deps",
+    "package:portable": "powershell -ExecutionPolicy Bypass -File scripts/package-portable.ps1"
+  },
+  "dependencies": {
+    "@electron-toolkit/preload": "^3.0.2",
+    "@electron-toolkit/utils": "^4.0.0"
+  },
+  "devDependencies": {
+    "@electron-toolkit/eslint-config-prettier": "3.0.1",
+    "@electron-toolkit/eslint-config-ts": "^4.0.0",
+    "@electron-toolkit/tsconfig": "^2.0.0",
+    "@types/node": "^24.19.2",
+    "@vitejs/plugin-vue": "^6.0.10",
+    "electron": "^44.7.2",
+    "electron-builder": "^26.15.3",
+    "electron-vite": "^6.0.0",
+    "eslint": "^10.12.0",
+    "eslint-plugin-vue": "^10.11.1",
+    "prettier": "^3.9.10",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3",
+    "vite": "^8.3.4",
+    "vue": "^3.5.44",
+    "vue-eslint-parser": "^10.4.1",
+    "vue-tsc": "^3.3.13"
+  }
+}

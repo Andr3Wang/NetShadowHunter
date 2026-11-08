@@ -1,0 +1,38 @@
+.DS_Store
+.eslintcache
+*.log*
+*.tsbuildinfo
+.vite
+cookie-jars
+
+# Local engine binaries (too large for git)
+resources/bin/*.exe
+resources/bin/*.cmd
+
+# Dependencies and build output
+node_modules/
+out/
+dist/
+coverage/
+.vite/
+*.tsbuildinfo
+
+# Packaged artifacts
+*.zip
+*.7z
+*.dmg
+*.AppImage
+*.exe
+*.msi
+*.blockmap
+
+# Local environment
+.env
+.env.*
+!.env.example
+
+# Editor/OS
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
